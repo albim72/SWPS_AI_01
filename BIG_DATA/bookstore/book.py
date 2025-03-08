@@ -22,3 +22,9 @@ class Book:
     def create_book(self):
         print(f"utworzono ksiązkę - nowy obiekt klasy {self.__class__.__qualname__}")
 
+    def getid(self):
+        return self.idbook
+
+    def setid(self,noweid):
+        self.idbook = noweid
+
