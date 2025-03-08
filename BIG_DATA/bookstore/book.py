@@ -28,3 +28,12 @@ class Book:
     def setid(self,noweid):
         self.idbook = noweid
 
+    @property
+    def cena(self):
+        return self._cena
+
+    @cena.setter
+    def cena(self,ncena):
+        self._cena = ncena
+
+
