@@ -12,6 +12,12 @@ class Book:
         self.oprawa = "miękka"
         self.create_book()
 
+    def __repr__(self):
+        return f"książka [id->{self.idbook}] {self.tytul}, autor: {self.autor}"
+
+    def __call__(self, procent):
+        print(f"Rabat przy zakupie: {procent/100 * self.cena} zł")
+
     #definicja zachowania
     def create_book(self):
         print(f"utworzono ksiązkę - nowy obiekt klasy {self.__class__.__qualname__}")
