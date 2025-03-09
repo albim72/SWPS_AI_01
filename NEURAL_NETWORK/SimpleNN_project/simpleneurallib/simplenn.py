@@ -28,4 +28,10 @@ class SimpleNeuralNetwork:
         self.weights += np.dot(train_input.T,error*self.d_sigmoid(propagation_result))
 
 
-
+    #funkcja treningu
+    def train(self,train_input,train_output,train_iters):
+        for _ in range(train_iters):
+            propagation_result = self.propagation(train_input)
+            self.backward_propagation(propagation_result,train_input,train_output)
+            
+    
