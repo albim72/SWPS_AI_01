@@ -46,3 +46,30 @@ shap.force_plot(explainer.expected_value[0], shap_values[0][0], feature_names=X.
 
 # 7. Alternatywnie: wykres słupkowy ważności cech
 shap.summary_plot(shap_values[0], X_test_scaled[:10], feature_names=X.columns)
+
+
+# 8. Oryginalna dokładność
+y_pred = (model.predict(X_test_scaled) > 0.5).astype("int32")
+baseline_acc = accuracy_score(y_test, y_pred)
+print(f"Baseline accuracy: {baseline_acc:.4f}")
+
+# 9. Permutation Feature Importance
+importances = []
+for i in range(X.shape[1]):
+    X_test_permuted = X_test_scaled.copy()
+    np.random.shuffle(X_test_permuted[:, i])  # permutacja jednej cechy
+    y_pred_perm = (model.predict(X_test_permuted) > 0.5).astype("int32")
+    acc = accuracy_score(y_test, y_pred_perm)
+    drop = baseline_acc - acc
+    importances.append(drop)
+    print(f"Feature: {columns[i]} | Drop in accuracy: {drop:.4f}")
+
+# 10. Wykres
+plt.figure(figsize=(10, 6))
+plt.barh(columns[:-1], importances)
+plt.xlabel("Spadek dokładności po permutacji cechy")
+plt.title("Permutation Feature Importance (dla sieci neuronowej)")
+plt.gca().invert_yaxis()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
