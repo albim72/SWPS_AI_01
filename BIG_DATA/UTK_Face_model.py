@@ -11,6 +11,7 @@ from sklearn.model_selection import train_test_split
 DATASET_DIR = 'UTKFace'  # ścieżka do folderu ze zdjęciami (np. ./UTKFace/)
 IMAGE_SIZE = (64, 64)
 
+# https://www.kaggle.com/datasets/jangedoo/utkface-new
 # === ŁADOWANIE DANYCH ===
 def load_utkface_dataset(path):
     images = []
