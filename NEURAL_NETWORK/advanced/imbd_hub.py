@@ -55,18 +55,18 @@ print(f"\nLoss: {loss:.4f} | Accuracy: {accuracy:.4f}")
 
 # === 7. Predykcje na próbkach testowych i wykres ===
 
-# Wybieramy 5 przykładowych recenzji z test_data
-for text_batch, label_batch in test_data.take(1):
-    test_examples = text_batch[:5].numpy()
-    true_labels = label_batch[:5].numpy()
-    break
+# Wybieramy 1 batch z danych testowych
+example_batch = next(iter(test_data))  # pobierz pierwszą partię danych
+text_batch, label_batch = example_batch
+test_examples = text_batch[:5]         # weź 5 przykładów
+true_labels = label_batch[:5].numpy()
 
-# Predykcje
+# Predykcje modelu
 raw_preds = model.predict(test_examples)
 pred_probs = tf.sigmoid(raw_preds).numpy().flatten()
 
-# Tekstowe recenzje do wykresu
-decoded_reviews = [review.decode("utf-8") for review in test_examples]
+# Dekodowanie recenzji (z bytes do string)
+decoded_reviews = [ex.numpy().decode("utf-8") for ex in test_examples]
 
 # === 8. Wizualizacja ===
 plt.figure(figsize=(10, 6))
