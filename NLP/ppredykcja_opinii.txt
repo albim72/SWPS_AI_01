@@ -1,0 +1,40 @@
+# Lista 20 wypowiedzi testowych
+test_sentences = [
+    "I absolutely love this product!",
+    "Terrible experience, I will never buy this again.",
+    "Great quality and fast delivery.",
+    "Completely useless and a waste of money.",
+    "Highly recommend it to everyone!",
+    "Awful packaging and very slow shipping.",
+    "This is the best purchase I made this year!",
+    "Not satisfied, the item broke after two days.",
+    "Super helpful and kind customer service!",
+    "Disappointed with how it turned out.",
+    "Amazing quality, exceeded my expectations!",
+    "The product stopped working after a week.",
+    "Really fast shipping and nice packaging.",
+    "Customer service was not helpful at all.",
+    "It's okay, nothing special.",
+    "Absolutely fantastic, I'm impressed!",
+    "Won’t be buying from this seller again.",
+    "Love it! Will order again soon.",
+    "Worst purchase I've ever made.",
+    "Top-notch quality and very reliable."
+]
+
+# Tokenizacja tekstów
+tokenizer = Tokenizer(num_words=1000, oov_token="<OOV>")
+tokenizer.fit_on_texts(test_sentences)
+sequences = tokenizer.texts_to_sequences(test_sentences)
+padded = pad_sequences(sequences, maxlen=20, padding='post')
+
+# Załaduj wytrenowany model
+model = tf.keras.models.load_model("sentiment_model.h5")
+
+# Predykcja sentymentu
+predictions = model.predict(padded)
+
+# Wyświetl wyniki
+for i, sentence in enumerate(test_sentences):
+    label = "POSITIVE" if predictions[i] > 0.5 else "NEGATIVE"
+    print(f"{label} ({predictions[i][0]:.2f}): {sentence}")
