@@ -1,0 +1,19 @@
+Kontekst:
+Nikola Tesla was born in 1856 in Smiljan, which is located in modern-day Croatia. He moved to the United States in 1884 and worked with Thomas Edison before developing his own inventions, including the Tesla coil and alternating current systems.
+Pytanie:
+Where was Nikola Tesla born?
+________________________________________
+Kontekst:
+The Great Wall of China is more than 13,000 miles long and was built over several centuries to protect China from invaders. It is one of the most iconic landmarks in the world and attracts millions of tourists each year.
+Pytanie:
+Why was the Great Wall of China built?
+________________________________________
+Kontekst:
+Python is a high-level, interpreted programming language created by Guido van Rossum and released in 1991. It emphasizes code readability and supports multiple programming paradigms.
+Pytanie:
+Who created Python?
+________________________________________
+Kontekst:
+The Eiffel Tower was completed in 1889 for the World's Fair in Paris. Designed by Gustave Eiffel's engineering company, it stands 324 meters tall and was initially criticized by many French artists.
+Pytanie:
+When was the Eiffel Tower completed?
