@@ -30,6 +30,32 @@ Szczegóły implementacji:
 
     Dokumentuj każdą metodę docstringiem w stylu Sphinx.
 
+
+Extra:
+
+Jesteś ekspertem od uczenia maszynowego, który prowadzi zaawansowane zajęcia dla studentów informatyki. Twoim zadaniem jest krok po kroku wyjaśnić, a następnie zaprogramować **miniaturowy model Transformer** w czystym PyTorch, bez używania gotowych klas typu `nn.Transformer`.
+
+Założenia:
+- Słownik ma 20 tokenów, embedding ma rozmiar 32.
+- Sekwencje wejściowe mają maksymalnie 8 tokenów.
+- Celem modelu jest przewidywanie kolejnego tokenu w sekwencji (LM-style).
+- Chcę zobaczyć dokładnie:
+    - implementację pozycyjnych embeddingów (np. sinusoidalnych lub uczonych),
+    - mechanizm self-attention z maskowaniem,
+    - LayerNorm i skip connection (residual),
+    - jedną warstwę feedforward,
+    - końcowy softmax do predykcji tokenu.
+
+Struktura odpowiedzi:
+1. Najpierw krótka (3–4 zdania) kontekstowa instrukcja edukacyjna — co robimy i dlaczego.
+2. Następnie pełny, uruchamialny kod w PyTorch.
+3. Na końcu: krótki komentarz wyjaśniający każdy fragment kodu – w stylu „dla studenta”.
+
+Upewnij się, że kod działa samodzielnie – nie wymaga danych zewnętrznych ani bibliotek innych niż PyTorch i NumPy. Chcę mieć możliwość użycia tego jako notebooku demonstracyjnego dla grupy studentów. Kod ma być elegancki, czytelny i dobrze zorganizowany.
+
+Na końcu podaj też jedno zadanie rozszerzające dla studentów, np. „Dodaj drugą warstwę attention” lub „Zastosuj dropout”.
+
+
 8. prompty  Browse with Bing
   - @browser
 Przeszukaj publicznie dostępne, niszowe fora i grupy dyskusyjne (Stack Exchange, Reddit, specialized forums) z ostatnich 7 dni, dotyczące przecieków i nieoficjalnych doniesień o nadchodzących premierach procesorów Intel i AMD. Podaj tytuł wątku, datę, link i krótkie 2-zdaniowe podsumowanie najciekawszego przecieku.
